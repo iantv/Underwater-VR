@@ -15,11 +15,11 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.093983635, g: 0.31132078, b: 0.3049697, a: 1}
-  m_FogMode: 2
+  m_FogColor: {r: 0.07573869, g: 0.29533398, b: 0.3490566, a: 0.27450982}
+  m_FogMode: 1
   m_FogDensity: 0.03
   m_LinearFogStart: 0
-  m_LinearFogEnd: 100
+  m_LinearFogEnd: 180
   m_AmbientSkyColor: {r: 0.31132078, g: 0.5408806, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.5283019, g: 0.5258796, b: 0.43360627, a: 1}
   m_AmbientGroundColor: {r: 0.028390888, g: 0.033128507, b: 0.2735849, a: 1}
@@ -1433,6 +1433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Water Surface Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639990270528808122, guid: 1ab26c456ce330a409fdf90d13c7ab2d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ab26c456ce330a409fdf90d13c7ab2d, type: 3}
