@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: InputSystem.inputsettings
   m_EditorClassIdentifier: 
   m_SupportedDevices:
-  - XRController
-  m_UpdateMode: 1
+  - Keyboard
+  m_UpdateMode: 2
   m_CompensateForScreenOrientation: 1
   m_FilterNoiseOnCurrent: 0
   m_DefaultDeadzoneMin: 0.125
