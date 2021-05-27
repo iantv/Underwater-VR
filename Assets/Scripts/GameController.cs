@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     private int rotationSpeed;
     [SerializeField]
     public int RotationSpeed;// { get => rotationSpeed; set => rotationSpeed = value; }
+    public GameObject SpotLight;
 
     void Start()
     {
@@ -28,6 +29,11 @@ public class GameController : MonoBehaviour
             Vector3 force = Vector3.zero;
             Vector3 rot = Vector3.zero;
             Vector3 hei = Vector3.zero;
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SpotLight.SetActive(!SpotLight.active);
+            }
 
             if (Input.GetKey(KeyCode.W))
             {
