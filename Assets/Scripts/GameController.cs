@@ -62,6 +62,10 @@ public class GameController : MonoBehaviour
             {
                 hei.y -= Time.deltaTime * 1f;
             }
+            if (Input.GetKey(KeyCode.Mouse0))
+                rot.y = Input.GetAxis("Mouse X") *2;
+            if (Input.GetKey(KeyCode.Mouse1))
+                rot.x = Input.GetAxis("Mouse Y");
             rb.AddForce(force);
             Submarine.transform.Rotate(rot);
             Submarine.transform.Translate(hei, Space.World);
