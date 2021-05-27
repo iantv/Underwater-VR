@@ -154,7 +154,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &331284534
 GameObject:
@@ -400,7 +400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsVRMode: 0
   Submarine: {fileID: 93455573}
-  Speed: 200
+  DirectionSpeed: 400
+  RotationSpeed: 150
 --- !u!4 &539998433
 Transform:
   m_ObjectHideFlags: 0
