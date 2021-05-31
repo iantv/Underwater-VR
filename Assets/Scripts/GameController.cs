@@ -19,68 +19,60 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (IsVRMode)
+        Rigidbody rb = Submarine.GetComponent<Rigidbody>();
+        Vector3 force = Vector3.zero;
+        Vector3 rot = Vector3.zero;
+        Vector3 hei = Vector3.zero;
+
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            // Use VR Controllers
+            SpotLight.SetActive(!SpotLight.activeSelf);
         }
-        else
+        if (Input.GetKey(KeyCode.W))
         {
-            Rigidbody rb = Submarine.GetComponent<Rigidbody>();
-            Vector3 force = Vector3.zero;
-            Vector3 rot = Vector3.zero;
-            Vector3 hei = Vector3.zero;
+            force = Time.deltaTime * DirectionSpeed * Submarine.transform.forward;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            force = -1 * Time.deltaTime * DirectionSpeed * Submarine.transform.forward;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            force = -1 * Time.deltaTime * DirectionSpeed * Submarine.transform.right;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            force = Time.deltaTime * DirectionSpeed * Submarine.transform.right;
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            rot.z += Time.deltaTime * RotationSpeed;
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            rot.z -= Time.deltaTime * RotationSpeed;
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            hei.y += Time.deltaTime * 3f;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            hei.y -= Time.deltaTime * 1f;
+        }
+        if (Input.GetKey(KeyCode.Mouse0))
+            rot.y = Input.GetAxis("Mouse X") * 2;
+        if (Input.GetKey(KeyCode.Mouse1))
+            rot.x = Input.GetAxis("Mouse Y");
 
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                SpotLight.SetActive(!SpotLight.active);
-            }
+        rb.AddForce(force);
+        Submarine.transform.Rotate(rot);
+        Submarine.transform.Translate(hei, Space.World);
 
-            if (Input.GetKey(KeyCode.W))
-            {
-                force = Time.deltaTime * DirectionSpeed * Submarine.transform.forward;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                force = -1 * Time.deltaTime * DirectionSpeed * Submarine.transform.forward;
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                force = -1 * Time.deltaTime * DirectionSpeed * Submarine.transform.right;
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                force = Time.deltaTime * DirectionSpeed * Submarine.transform.right;
-            }
-            if (Input.GetKey(KeyCode.Q))
-            {
-                rot.z += Time.deltaTime * RotationSpeed;
-            }
-            if (Input.GetKey(KeyCode.E)) 
-            {
-                rot.z -= Time.deltaTime * RotationSpeed;
-            }
-            if (Input.GetKey(KeyCode.Space))
-            {
-                if (Submarine.transform.position.y < 46)
-                    hei.y += Time.deltaTime * 3f;
-            }
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                hei.y -= Time.deltaTime * 1f;
-            }
-            if (Input.GetKey(KeyCode.Mouse0))
-                rot.y = Input.GetAxis("Mouse X") *2;
-            if (Input.GetKey(KeyCode.Mouse1))
-                rot.x = Input.GetAxis("Mouse Y");
-            rb.AddForce(force);
-            Submarine.transform.Rotate(rot);
-            Submarine.transform.Translate(hei, Space.World);
-
-            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-            {
-                rb.velocity = Vector3.zero;
-                Debug.Log("Stop submarine");
-            }
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            rb.velocity = Vector3.zero;
+            Debug.Log("Stop submarine");
         }
     }
 }
