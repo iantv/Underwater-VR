@@ -2078,7 +2078,7 @@ PrefabInstance:
     - target: {fileID: 1553833885639101461, guid: e6fb5590884588647ade7a72309ebdf8,
         type: 3}
       propertyPath: m_Name
-      value: hellikopter_scifi_mesh
+      value: Submarine
       objectReference: {fileID: 0}
     - target: {fileID: 2223514890546157231, guid: e6fb5590884588647ade7a72309ebdf8,
         type: 3}
