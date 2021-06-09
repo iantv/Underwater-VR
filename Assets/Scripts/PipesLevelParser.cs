@@ -42,9 +42,9 @@ public class PipesLevelParser : MonoBehaviour
                 char c = t[cols];
                 switch (c)
                 {
-                    case '.':
-                        continue;
-                        break;
+                    /*case '.':
+                        //continue;
+                        break;*/
                     case '0':
                         Debug.Log("character is Zero");
                         break;
